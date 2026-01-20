@@ -44,3 +44,12 @@ class IrsanAITerminal(App):
             self.exit()
         else:
             log.write("[bold cyan]IrsanAI >[/] Befehl empfangen. Orchestriere Antwort...")
+
+        else:
+            if cmd.startswith("mastermind"):
+                log.write("[bold magenta]IrsanAI Mastermind >[/] Evolution gestartet – Teamwork auf Augenhöhe!")
+                log.write("[dim]Aktuelles Modell: " + self.app.current_model + " | Analysiere Logs... Generiere Optimierungen...[/]")
+                log.write("[bold green]Warte auf dein Okay: 'evolve yes' zum Fortfahren.[/]")
+                # Hier kommt später der echte Loop (Analyse → Vorschläge → dein Okay → auto-commit)
+            else:
+                log.write("[bold cyan]IrsanAI >[/] Befehl empfangen. Routing zu " + self.app.current_model + "...")

@@ -21,3 +21,13 @@ if __name__ == "__main__":
     
     app = IrsanAITerminal()
     app.run()
+
+from router.router import LLMRouter
+from bridge.proxy import ProxyBridge
+
+class IrsanAITerminal(App):
+    def __init__(self):
+        super().__init__()
+        self.router = LLMRouter()
+        self.bridge = ProxyBridge()
+        self.current_model = self.router.get_next_model()
