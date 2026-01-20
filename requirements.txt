@@ -1,0 +1,7 @@
+textual>=0.47.1
+rich>=13.7.0
+playwright>=1.40.0
+httpx>=0.26.0
+browser-cookie3>=0.19.1
+fastapi>=0.109.0
+uvicorn>=0.27.0
