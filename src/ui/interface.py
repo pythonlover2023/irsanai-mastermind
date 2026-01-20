@@ -45,3 +45,23 @@ class IrsanAITerminal(App):
         else:
             log.write(f"[bold cyan]IrsanAI >[/] Befehl empfangen. Routing zu {getattr(self, 'current_model', 'gemini')}... (Response kommt bald)")
             # Placeholder für Proxy-Call
+
+        if cmd.lower().startswith("mastermind evolve"):
+            log.write("[bold magenta]IrsanAI Mastermind >[/] Evolution Loop gestartet!")
+            log.write("[dim]Analysiere logs/session.log...[/]")
+            self.app.write_log("Evolution triggered by Captain")
+            log.write("[bold cyan]Vorschlag generiert (Placeholder): 'Optimierung: Proxy schneller machen'[/]")
+            log.write("[bold green]Okay zum Apply? Tipp 'evolve yes'[/]")
+            # Hier später: Echter Call an LLM via Proxy, Vorschlag parsen, auf yes warten → git commit
+        elif cmd.lower() == "evolve yes":
+            log.write("[bold green]Evolution approved! Applying changes...[/]")
+            self.app.write_log("Evolution approved – auto-commit")
+            log.write("[bold magenta]Code optimiert, restart in 3...2...1[/]")
+            # Placeholder für auto-commit
+            os.system("git add . && git commit -m 'Auto-Evolution: Captain approved' || true")
+            self.app.exit()  # Restart manuell oder auto
+        else:
+            log.write(f"[bold cyan]IrsanAI >[/] Prompt routing zu {self.app.current_model}...")
+            self.app.write_log(f"Prompt: {cmd}")
+            # Placeholder Response
+            log.write("[bold white]Response: Hallo Captain, ich bin ready für den nächsten Befehl.[/]")
